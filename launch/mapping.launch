@@ -1,0 +1,16 @@
+<launch>
+
+    <!--<node pkg="g2oodomsave" type="g2oSaver" name="g2oSave" args="$(find g2oodomsave)/pcd_buffer/LidarOdom.g2o ">-->
+        <!--<remap from="/after_rotate" to="/after_rotate"/>-->
+    <!--</node>-->
+
+    <!--重新改写一下这个转换位姿的订阅topic-->
+    <!--<node pkg="g2oodomsave" type="transfer" name="transfer" args="$(find g2oodomsave)/pcd_buffer/ " >-->
+        <!--<remap from="/aft_mapped_to_init" to="/integrated_to_init"/>-->
+    <!--</node>-->
+    <node pkg="g2oodomsave" type="mapping" name="mapping" args="/media/echo/DataSet/g2o_doc/3edges.g2o
+    /media/echo/DataSet/g2o_doc/3edges.g2o
+    /media/echo/DataSet/pku_suteng/big_map_pcd/finalmap true false"/>
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find g2oodomsave)/rviz_cfg/test.rviz" />
+
+</launch>
